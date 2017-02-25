@@ -23,7 +23,7 @@ def connDevice():
 
 driver = connDevice()
 
-# 获取当前时间
+# 获取当前时间a
 def getMyTime():
     mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))    
     return mytime
