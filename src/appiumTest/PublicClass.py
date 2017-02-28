@@ -14,9 +14,15 @@ from os.path import exists
 
 # 连接设备
 def connDevice():
+    desired_caps={}
+    desired_caps['deviceName'] = 'de1c33cb'  #adb devices查到的设备名
+    desired_caps['platformName'] = 'Android'         #被测试设备的系统
+    desired_caps['platformVersion'] = '6.0'          #被测试系统的版本
+    desired_caps['appPackage'] = 'com.cifco.jrt'  #被测App的包名
+    desired_caps['appActivity'] = '.activity.NewWelcomeActivity' #启动时的Activity
     # 指定平台、启动的设备、包名和启动的activity  unicodeKeyboard是使用unicode编码方式发送字符串  resetKeyboard是将键盘隐藏起来
-    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': 'de1c33cb','appPackage': 'com.cifco.jrt', 'appActivity': '.activity.NewWelcomeActivity',
-                    'unicodeKeyboard':True,'resetKeyboard':True}
+    #desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': 'de1c33cb','appPackage': 'com.cifco.jrt', 'appActivity': '.activity.NewWelcomeActivity',
+     #               'unicodeKeyboard':True,'resetKeyboard':True}
     # 关联Appium
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     return driver
